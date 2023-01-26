@@ -22,7 +22,8 @@ const rwClient = twitterClient.readWrite;
 
 const handler: Handler = async (event: HandlerEvent, context: HandlerContext) => {
   twitt = twitt.replace("!",`${contador}!`)
-  contador++;
+  contador = contador+1
+  contador = contador
   await rwClient.v2
     .tweet(twitt)
     .then((response) => {
