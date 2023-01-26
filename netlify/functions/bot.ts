@@ -29,10 +29,20 @@ const main = async () => {
     });
 };
 
+
 const handler: Handler = async (event: HandlerEvent, context: HandlerContext) => {
+  const res = await rwClient.v2
+    .tweet("Hello World!")
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+  });
+  
   return {
     statusCode: 200,
-    body: JSON.stringify({ ok: true, message: main() }),
+    body: JSON.stringify({ ok: true, message: res }),
   };
 };
 
