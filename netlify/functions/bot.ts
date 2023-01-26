@@ -20,7 +20,20 @@ const twitt = "Hello World!"
 
 
 const rwClient = twitterClient.readWrite;
-const main = async () => {
+
+// const main = async () => {
+//   await rwClient.v2
+//     .tweet(twitt)
+//     .then((response) => {
+//       console.log(response);
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// };
+
+
+const handler: Handler = async (event: HandlerEvent, context: HandlerContext) => {
   await rwClient.v2
     .tweet(twitt)
     .then((response) => {
@@ -28,18 +41,14 @@ const main = async () => {
     })
     .catch((error) => {
       console.log(error);
-    });
-};
-
-
-const handler: Handler = async (event: HandlerEvent, context: HandlerContext) => {
+  });
   return {
     statusCode: 200,
     body: JSON.stringify({ ok: true, message: twitt }),
   };
 };
-main();
-export { handler, main };
+// main();, main 
+export { handler };
 
 
 
