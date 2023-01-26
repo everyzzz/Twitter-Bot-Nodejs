@@ -16,10 +16,13 @@ const twitterClient = new TwitterApi({
   accessSecret: accessSecret
 });
 
-const twitt = "Hello World!"
+let twitt = "Hello World!"
+let contador = 1  
 const rwClient = twitterClient.readWrite;
 
 const handler: Handler = async (event: HandlerEvent, context: HandlerContext) => {
+  twitt = `${twitt}${contador}`
+  contador++;
   await rwClient.v2
     .tweet(twitt)
     .then((response) => {
