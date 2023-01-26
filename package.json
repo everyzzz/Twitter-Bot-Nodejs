@@ -17,12 +17,13 @@
     "crypto": "1.0.1",
     "dotenv": "16.0.3",
     "oauth-1.0a": "2.2.6",
-    "twitter-api-v2": "1.14.0",
-    "twit": "2.2.11"
+    "twit": "2.2.11",
+    "twitter-api-v2": "1.14.0"
   },
   "devDependencies": {
     "@types/jsonwebtoken": "9.0.1",
     "@types/node": "18.11.18",
+    "@types/twit": "2.2.31",
     "ts-node": "10.9.1",
     "tslib": "2.4.1",
     "typescript": "4.9.4"
