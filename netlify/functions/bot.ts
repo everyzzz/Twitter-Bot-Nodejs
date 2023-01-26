@@ -31,7 +31,7 @@ const main = async () => {
 
 
 const handler: Handler = async (event: HandlerEvent, context: HandlerContext) => {
-  const res = await rwClient.v2
+  await rwClient.v2
     .tweet("Hello World!")
     .then((response) => {
       console.log(response);
@@ -42,8 +42,8 @@ const handler: Handler = async (event: HandlerEvent, context: HandlerContext) =>
   
   return {
     statusCode: 200,
-    body: JSON.stringify({ ok: true, message: res }),
+    body: JSON.stringify({ ok: true }),
   };
 };
-
-export { handler };
+main();
+export { handler, main };
