@@ -17,13 +17,14 @@ const T = new Twit({
   access_token_secret: accessSecret
 });
 
+
 const handler: Handler = async (event: HandlerEvent, context: HandlerContext) => {
-	T.post('statuses/update', { status: message }, function(err, data, response) {
+	const post = await T.post('statuses/update', { status: message }, function (err, data, response) {
 		console.log(data)
-	 });
+	 });	
 	return {
 	  statusCode: 200,
-	  body: JSON.stringify({ ok: true, message: message }),
+	  body: JSON.stringify({ ok: true, message: post }),
 	};
  };
  export { handler };
